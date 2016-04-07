@@ -165,7 +165,7 @@ class TestGenerator extends AbstractGenerator
         if ($reflector->isAbstract()) {
             $methodTemplate->setVar(
                 array(
-                    'asserter' => 'isAbstract()',
+                    'asserter' => "testedClass\n\t\t\t\t->isAbstract()",
                     'className' => $this->className['className'],
                 )
             );
@@ -174,9 +174,26 @@ class TestGenerator extends AbstractGenerator
             if (empty($interfaces)) {
                 if ($reflector->getParentClass()) {
                     $use .= 'use '.$reflector->getParentClass()->getName().";\n";
+                    $components = explode('\\', $reflector->getParentClass()->getName());
+
                     $methodTemplate->setVar(
                         array(
-                            'asserter' => 'extends('.$reflector->getParentClass()->getName().'::class)',
+                            'asserter' => "testedClass\n\t\t\t\t->extends(".array_pop($components)."::class)",
+                            'className' => $this->className['className'],
+                        )
+                    );
+                } else {
+                    $methodTemplate = new Template(
+                        sprintf(
+                            '%s%sTemplates%sEmptyMethod.tpl',
+                            __DIR__,
+                            DIRECTORY_SEPARATOR,
+                            DIRECTORY_SEPARATOR
+                        )
+                    );
+
+                    $methodTemplate->setVar(
+                        array(
                             'className' => $this->className['className'],
                         )
                     );
@@ -184,9 +201,10 @@ class TestGenerator extends AbstractGenerator
             } else {
                 $use .= 'use '.$interfaces[0].";\n";
                 $components = explode('\\', $interfaces[0]);
+
                 $methodTemplate->setVar(
                     array(
-                        'asserter' => 'implements('.array_pop($components).'::class)',
+                        'asserter' => "testedClass\n\t\t\t\t->implements(".array_pop($components)."::class)",
                         'className' => $this->className['className'],
                     )
                 );

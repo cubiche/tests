@@ -4,7 +4,5 @@
      */
     public function testClass()
     {
-        $this
-            ->{asserter}
-        ;
+        // todo: Implement tests for this class.
     }
