@@ -414,7 +414,7 @@ class Custom extends Report
             'totalLines' => count($lines),
             'relevantLines' => $relevantLines,
             'coveredLines' => $coveredLines,
-            'coverage' => (float) ($coveredLines / $relevantLines),
+            'coverage' => $relevantLines > 0 ? (float) ($coveredLines / $relevantLines) : 0,
             'lines' => $lines,
         ];
     }
