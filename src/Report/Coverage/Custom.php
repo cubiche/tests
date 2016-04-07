@@ -346,10 +346,14 @@ class Custom extends Report
             }
 
             foreach ($directoriesCoverage as $path => &$directoryCoverageItem) {
-                $directoryCoverageItem['coverage'] = (float) (
-                    $directoryCoverageItem['coveredLines'] / $directoryCoverageItem['relevantLines']
-                );
+                $calculatedCoverage = 0;
+                if ($directoryCoverageItem['relevantLines'] > 0) {
+                    $calculatedCoverage = (float) (
+                        $directoryCoverageItem['coveredLines'] / $directoryCoverageItem['relevantLines']
+                    );
+                }
 
+                $directoryCoverageItem['coverage'] = $calculatedCoverage;
                 foreach ($directoryCoverageItem['directories'] as $directoryName => &$directoryCoverage) {
                     $directoryCoverage['relevantLines'] = $directoriesCoverage[$path.$directoryName.'/']
                         ['relevantLines']
@@ -363,9 +367,14 @@ class Custom extends Report
                         ['totalLines']
                     ;
 
-                    $directoryCoverage['coverage'] = (float) (
-                        $directoryCoverage['coveredLines'] / $directoryCoverage['relevantLines']
-                    );
+                    $calculatedCoverage = 0;
+                    if ($directoryCoverage['relevantLines'] > 0) {
+                        $calculatedCoverage = float) (
+                            $directoryCoverage['coveredLines'] / $directoryCoverage['relevantLines']
+                        );
+                    }
+
+                    $directoryCoverage['coverage'] = $calculatedCoverage;
                 }
             }
 
