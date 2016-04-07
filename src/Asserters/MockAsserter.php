@@ -40,15 +40,16 @@ class MockAsserter extends BaseMock
 
                 $currentCall = $this->getCall();
 
-                $result = $this->getCalls($currentCall)->getEqualTo($currentCall)->toArray();
-                if (count($result) > 2) {
-                    $asserter = $result[2]->getArguments();
-                    $argument = $asserter[$arguments[0]];
-
-                    $arguments[1]($argument);
+                $asserter = [];
+                foreach ($this->getCalls($currentCall)->getEqualTo($currentCall)->toArray() as $call) {
+                    $asserter = $call->getArguments();
+                    break;
                 }
 
-                return $this->callIsSet();
+                $argument = $asserter[$arguments[0]];
+                $arguments[1]($argument);
+
+                return $this->callIsSet();             
             default:
                 return parent::__call($method, $arguments);
         }
