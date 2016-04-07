@@ -329,13 +329,18 @@ class Custom extends Report
                         'totalLines' => 0,
                     ];
                 } else {
-                    $directoriesCoverage[$itemPath]['files'][$itemName] = [
+                        $calculatedCoverage = 0;
+                        if ($linesCoverage['relevantLines'] > 0) {
+                            $calculatedCoverage = (float) (
+                                $linesCoverage['coveredLines'] / $linesCoverage['relevantLines']
+                            );
+                        }
+
+                        $directoriesCoverage[$itemPath]['files'][$itemName] = [
                         'relevantLines' => $linesCoverage['relevantLines'],
                         'coveredLines' => $linesCoverage['coveredLines'],
                         'totalLines' => count($linesCoverage['lines']),
-                        'coverage' => (float) (
-                            $linesCoverage['coveredLines'] / $linesCoverage['relevantLines']
-                        ),
+                        'coverage' => $calculatedCoverage,
                     ];
                 }
             }
@@ -410,11 +415,16 @@ class Custom extends Report
             }
         }
 
+        $calculatedCoverage = 0;
+        if ($relevantLines > 0) {
+            $calculatedCoverage = (float) ($coveredLines / $relevantLines);
+        }
+
         return [
             'totalLines' => count($lines),
             'relevantLines' => $relevantLines,
             'coveredLines' => $coveredLines,
-            'coverage' => $relevantLines > 0 ? (float) ($coveredLines / $relevantLines) : 0,
+            'coverage' => $calculatedCoverage,
             'lines' => $lines,
         ];
     }
