@@ -369,7 +369,7 @@ class Custom extends Report
 
                     $calculatedCoverage = 0;
                     if ($directoryCoverage['relevantLines'] > 0) {
-                        $calculatedCoverage = float) (
+                        $calculatedCoverage = (float) (
                             $directoryCoverage['coveredLines'] / $directoryCoverage['relevantLines']
                         );
                     }
