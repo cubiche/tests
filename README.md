@@ -111,5 +111,5 @@ Cubiche
 
 ##Authors
 
-[Ivannis Suárez Jérez](https://github.com/ivannis)
-[Karel Osorio Ramírez](https://github.com/osorioramirez)
+* [Ivannis Suárez Jérez](https://github.com/ivannis)
+* [Karel Osorio Ramírez](https://github.com/osorioramirez)
