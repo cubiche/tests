@@ -37,10 +37,10 @@
     "minimum-stability": "dev",
     "scripts": {
         "post-install-cmd": [
-            "Cubiche\\Tools\\CodeQualityTool::checkHooks"
+            "chmod +x test-generator"
         ],
         "post-update-cmd": [
-            "Cubiche\\Tools\\CodeQualityTool::checkHooks"
+            "chmod +x test-generator"
         ]
     }
 }
