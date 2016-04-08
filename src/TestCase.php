@@ -76,4 +76,12 @@ abstract class TestCase extends Test
     {
         return $this->skip($message);
     }
+    
+    /**
+     * @return object
+     */
+    public function newDefaultTestedInstance()
+    {
+        return $this->newTestedInstance();
+    }
 }
