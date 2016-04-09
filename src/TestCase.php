@@ -76,12 +76,28 @@ abstract class TestCase extends Test
     {
         return $this->skip($message);
     }
-    
+
     /**
      * @return object
      */
     public function newDefaultTestedInstance()
     {
-        return $this->newTestedInstance();
+        return \call_user_func_array(array($this, 'newTestedInstance'), $this->defaultConstructorArguments());
+    }
+
+    /**
+     * @return object
+     */
+    public function newDefaultMockTestedInstance()
+    {
+        return $this->newMockInstance($this->testedClass, null, null, $this->defaultConstructorArguments());
+    }
+
+    /**
+     * @return array
+     */
+    protected function defaultConstructorArguments()
+    {
+        return array();
     }
 }
