@@ -48,7 +48,7 @@ class MockAsserter extends BaseMock
                 $argument = $asserter[$arguments[0]];
                 $arguments[1]($argument);
 
-                return $this->callIsSet();             
+                return $this->callIsSet();
             default:
                 return parent::__call($method, $arguments);
         }
