@@ -39,8 +39,8 @@ abstract class TestCase extends Test
         Extractor $annotationExtractor = null,
         Generator $asserterGenerator = null,
         Manager $assertionManager = null,
-        Closure $reflectionClassFactory = null,
-        Closure $phpExtensionFactory = null,
+        \Closure $reflectionClassFactory = null,
+        \Closure $phpExtensionFactory = null,
         Analyzer $analyzer = null
     ) {
         parent::__construct(

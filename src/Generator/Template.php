@@ -97,7 +97,7 @@ class Template
     {
         $keys = array();
 
-        foreach ($this->values as $key => $value) {
+        foreach (\array_keys($this->values) as $key) {
             $keys[] = $this->openCharacter.$key.$this->closeCharacter;
         }
 
@@ -121,7 +121,7 @@ class Template
         } else {
             $error = error_get_last();
 
-            throw new RuntimeException(
+            throw new \RuntimeException(
                 sprintf(
                     'Could not write to %s: %s',
                     $target,

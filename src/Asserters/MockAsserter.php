@@ -10,7 +10,6 @@
  */
 namespace Cubiche\Tests\Asserters;
 
-use Doctrine\MongoDB\Event\DistinctEventArgs;
 use mageekguy\atoum\asserters\mock as BaseMock;
 
 /**

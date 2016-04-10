@@ -412,7 +412,7 @@ class ClassUtils
         );
 
         $files = [];
-        foreach ($objects as $fileName => $object) {
+        foreach (\array_keys($objects) as $fileName) {
             if (is_file($fileName) && !self::isTestFile($fileName, $testDirectoryName)) {
                 $info = pathinfo($fileName);
                 if (!isset($info['extension'])) {
