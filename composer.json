@@ -15,13 +15,14 @@
         }
     ],
     "require": {
-        "php":              "^5.5.9|^7.0",
-        "atoum/atoum":      "~2.5",
-        "atoum/stubs":      "~2.5",
-        "symfony/console":  "~2.4"
+        "php":                          "^5.5.9|^7.0",
+        "atoum/atoum":                  "~2.5",
+        "atoum/stubs":                  "~2.5",
+        "atoum/visibility-extension":   "~1.0",
+        "symfony/console":              "~2.4"
     },
     "require-dev": {
-        "cubiche/cqt":      "dev-master"
+        "cubiche/cqt":                  "dev-master"
     },
     "autoload": {
         "psr-4": {
