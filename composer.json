@@ -22,7 +22,8 @@
         "symfony/console":              "~2.4"
     },
     "require-dev": {
-        "cubiche/cqt":                  "dev-master"
+        "cubiche/cqt":                  "dev-master",
+        "fzaninotto/faker":             "^1.6"
     },
     "autoload": {
         "psr-4": {
