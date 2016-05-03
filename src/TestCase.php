@@ -16,8 +16,8 @@ use mageekguy\atoum\annotations\extractor as Extractor;
 use mageekguy\atoum\asserter\generator as Generator;
 use mageekguy\atoum\test\assertion\manager as Manager;
 use mageekguy\atoum\tools\variable\analyzer as Analyzer;
-use Faker\Factory;
-use Faker\Generator;
+use Faker\Factory as FakerFactory;
+use Faker\Generator as FakerGenerator;
 
 /**
  * Abstract Test Case Class.
@@ -28,7 +28,7 @@ use Faker\Generator;
 abstract class TestCase extends Test
 {
     /**
-     * @var Generator
+     * @var FakerGenerator
      */
     protected $faker;
 
@@ -62,7 +62,7 @@ abstract class TestCase extends Test
 
         $this->getAsserterGenerator()->addNamespace('Cubiche\Tests\Asserters');
         $this->getAssertionManager()->setAlias('mock', 'MockAsserter');
-        $this->faker = Factory::create();
+        $this->faker = FakerFactory::create();
     }
 
     /**
