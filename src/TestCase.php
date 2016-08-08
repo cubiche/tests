@@ -11,13 +11,12 @@
 namespace Cubiche\Tests;
 
 use atoum\test as Test;
+use Faker\Factory as FakerFactory;
 use mageekguy\atoum\adapter as Adapter;
 use mageekguy\atoum\annotations\extractor as Extractor;
 use mageekguy\atoum\asserter\generator as Generator;
 use mageekguy\atoum\test\assertion\manager as Manager;
 use mageekguy\atoum\tools\variable\analyzer as Analyzer;
-use Faker\Factory as FakerFactory;
-use Faker\Generator as FakerGenerator;
 
 /**
  * Abstract Test Case Class.
@@ -27,10 +26,7 @@ use Faker\Generator as FakerGenerator;
  */
 abstract class TestCase extends Test
 {
-    /**
-     * @var FakerGenerator
-     */
-    protected $faker;
+    use TestTrait;
 
     /**
      * @param Adapter   $adapter
