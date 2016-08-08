@@ -8,10 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace Cubiche\Tests;
 
 use atoum\test as Test;
 use Faker\Factory as FakerFactory;
+use Faker\Generator as FakerGenerator;
 use mageekguy\atoum\adapter as Adapter;
 use mageekguy\atoum\annotations\extractor as Extractor;
 use mageekguy\atoum\asserter\generator as Generator;
@@ -26,7 +28,10 @@ use mageekguy\atoum\tools\variable\analyzer as Analyzer;
  */
 abstract class TestCase extends Test
 {
-    use TestTrait;
+    /**
+     * @var FakerGenerator
+     */
+    public $faker;
 
     /**
      * @param Adapter   $adapter
