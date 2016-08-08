@@ -21,7 +21,7 @@ use mageekguy\atoum\test\adapter as Adapter;
  */
 trait TestTrait
 {
-    use mageekguy\atoum\stubs\asserters;
+    use \mageekguy\atoum\stubs\asserters;
     
     /**
      * @var FakerGenerator
