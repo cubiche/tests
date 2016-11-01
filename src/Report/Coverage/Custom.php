@@ -89,7 +89,7 @@ class Custom extends Report
             ->setProjectName($projectName)
             ->setDestinationDirectory($destinationDirectory)
             ->setUrlColorizer()
-            ->setTemplatesDirectory()
+            ->setTemplatesDirectory(__DIR__.'/../../../resources/coverage')
             ->setTemplateParser()
             ->setRootUrl('/');
     }
@@ -693,7 +693,7 @@ class Custom extends Report
                 'itemRelevantLines' => $directoryValues['relevantLines'],
                 'itemCoveredLines' => $directoryValues['coveredLines'],
                 'itemCoverage' => round($directoryValues['coverage'] * 100, 2),
-                'itemCoverageRounded' => ceil($directoryValues['coverage'] * 100),
+                'itemCoverageRounded' => floor($directoryValues['coverage'] * 100),
             ));
         }
 
@@ -706,7 +706,7 @@ class Custom extends Report
                 'itemRelevantLines' => $fileValues['relevantLines'],
                 'itemCoveredLines' => $fileValues['coveredLines'],
                 'itemCoverage' => round($fileValues['coverage'] * 100, 2),
-                'itemCoverageRounded' => ceil($fileValues['coverage'] * 100),
+                'itemCoverageRounded' => floor($fileValues['coverage'] * 100),
             ));
         }
 
