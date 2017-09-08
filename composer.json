@@ -16,8 +16,8 @@
     ],
     "require": {
         "php":                          "^5.5.9|^7.0",
-        "atoum/atoum":                  "~2.5",
-        "atoum/stubs":                  "~2.5",
+        "atoum/atoum":                  "~3.2",
+        "atoum/stubs":                  "~3.2",
         "atoum/visibility-extension":   "~1.0",
         "symfony/console":              "3.3.*",
         "fzaninotto/faker":             "^1.6"
