@@ -49,6 +49,20 @@ class ClassUtils
                     }
                     break;
 
+                case T_CLASS:
+                    if (isset($tokens[$i + 2][1])) {
+                        $currentName = trim($tokens[$i + 2][1]);
+                        if (!empty($currentName) and ctype_alnum($currentName)) {
+                            if ($currentNamespace === false) {
+                                $result[] = $currentName;
+                            } else {
+                                $result[] = $currentNamespace.'\\'.$currentName;
+                            }
+                        }
+                    }
+
+                    break;
+
                 case $tokenType:
                     if (isset($tokens[$i + 2][1])) {
                         $currentName = trim($tokens[$i + 2][1]);
@@ -294,7 +308,7 @@ class ClassUtils
             return implode('\\', explode('/', $componentPath.DIRECTORY_SEPARATOR)).
                 implode('\\', explode('/', $testDirectoryName)).
                 $targetClassName
-            ;
+                ;
         }
 
         // Cubiche\\Domain\\Command\\Tests\\Units\\Middlewares\\Handler\\HandlertMiddlewareTests.php
@@ -302,7 +316,7 @@ class ClassUtils
             implode('\\', explode('/', $testDirectoryName)).
             implode('\\', explode('/', empty($end) ? '' : $end.DIRECTORY_SEPARATOR)).
             $targetClassName
-        ;
+            ;
     }
 
     /**
@@ -331,7 +345,7 @@ class ClassUtils
         return implode('\\', explode('/', $componentPath.DIRECTORY_SEPARATOR)).
             implode('\\', explode('/', $testDirectoryName)).
             $testCaseClassName
-        ;
+            ;
     }
 
     /**
@@ -384,7 +398,7 @@ class ClassUtils
                 $componentPath.DIRECTORY_SEPARATOR.
                 $testDirectoryName.
                 $targetClassName.'.php'
-            ;
+                ;
         }
 
         // src/Cubiche/Domain/Command/Tests/Units/Middlewares/Handler/HandlertMiddlewareTests.php
@@ -393,7 +407,7 @@ class ClassUtils
             $testDirectoryName.
             (empty($end) ? '' : $end.DIRECTORY_SEPARATOR).
             $targetClassName.'.php'
-        ;
+            ;
     }
 
     /**
