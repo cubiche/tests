@@ -2,7 +2,12 @@ body {
     background-color: #FFFFFF;
     margin-top: 100px;
 }
-
+.ui.column.grid>[class*="three wide"].column {
+    width: 333px !important;
+}
+.ui.column.grid>[class*="three wide"].column a:hover {
+    background-color: #f7f9fa !important;
+}
 .ui.main.menu:before {
     content: " ";
     display: table;
@@ -72,6 +77,7 @@ body {
     border-radius: 0 !important;
     box-shadow: none;
     color: #dcddde;
+    border-bottom: 1px solid #444;
 }
 
 .ui.vertical.menu .active.item:hover {
@@ -116,12 +122,12 @@ table.source {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    border: solid 1px #d8d8d8;
+    border: 1px solid #dbe6ec;
 }
 table.source th, table.source td {padding: 0.2em; }
 table.source th {
-    border-bottom: solid 1px #d8d8d8;
-    background: #f7f7f7;
+    border-bottom: 1px solid #dbe6ec;
+    background: #fff;
     padding: 16px 0;
 }
 table.source th.number {width: 3.5em;}
@@ -133,16 +139,16 @@ table.source td {
 table.source td.number {
     padding: 0px 10px;
     text-align: right;
-    background: #fff;
+    background: #dbe6ec;
     font-family: monospace;
-    color: rgba(0,0,0,0.3);
-    border-right: solid 1px #EAE5E5;
+    color: #768389;
+    border-right: 1px solid #dbe6ec;
     font-size: 0.9em;
 }
-table.source tr.notCovered td {background: #FDC7C0;}
-table.source tr.notCovered td.number {border-color: #ECA5A5;}
-table.source tr.covered td {background: #a6f3a6;}
-table.source tr.covered td.number {border-color: #85D885;}
+table.source tr.notCovered td {background: #ffcece;}
+table.source tr.notCovered td.number {border-color: #eaabab;}
+table.source tr.covered td {background: #ceffce;}
+table.source tr.covered td.number {border-color: #9fd49f;}
 table.source pre {font-family: monospace; margin: 0; font-size: 0.9em;}
 
 table.items {
@@ -217,17 +223,13 @@ table.items tr .label {
     line-height: 1;
     font-size: 2.2em;
     font-family: OpenSans-Light,Arial,Helvetica,sans-serif;
-    color: #00b5ad;
-}
-
-.summary .ui.progress.success .bar {
-    background-color: #5CB85C!important;
+    color: #62d46d;
 }
 
 .summary .ui.inverted.success.statistic>.value,
 .summary .ui.inverted.success.statistics .statistic>.value,
 .summary .ui.statistics .inverted.success.statistic>.value {
-    color: #5CB85C;
+    color: #74c49a;
 }
 
 .summary .ui.statistic .value, .summary .ui.statistics .statistic>.value {
@@ -257,32 +259,155 @@ table.items tr .label {
 }
 
 .\30, .\31, .\32, .\33, .\34, .\35, .\36, .\37, .\38, .\39,
-.\30 0, .\30 1, .\30 2, .\30 3, .\30 4, .\30 5, .\30 6, .\30 7, .\30 8, .\30 9,
+.\31 0, .\31 1, .\31 2, .\31 3, .\31 4, .\31 5, .\31 6, .\31 7, .\31 8, .\31 9,
 .\32 0, .\32 1, .\32 2, .\32 3, .\32 4, .\32 5, .\32 6, .\32 7, .\32 8, .\32 9,
 .\33 0, .\33 1, .\33 2, .\33 3, .\33 4, .\33 5, .\33 6, .\33 7, .\33 8, .\33 9,
-.\34 0, .\34 1, .\34 2, .\34 3, .\34 4, .\34 5, .\34 6, .\34 7, .\34 8, .\34 9 {
-    background: #DA4336 !important;
+.\34 0, .\34 1, .\34 2, .\34 3, .\34 4, .\34 5, .\34 6, .\34 7, .\34 8, .\34 9,
+.summary .ui.progress.success .bar.\30, .summary .ui.progress.success .bar.\31,
+.summary .ui.progress.success .bar.\32, .summary .ui.progress.success .bar.\33,
+.summary .ui.progress.success .bar.\34, .summary .ui.progress.success .bar.\35,
+.summary .ui.progress.success .bar.\36, .summary .ui.progress.success .bar.\37,
+.summary .ui.progress.success .bar.\38, .summary .ui.progress.success .bar.\39,
+.summary .ui.progress.success .bar.\31 0, .summary .ui.progress.success .bar.\31 1,
+.summary .ui.progress.success .bar.\31 2, .summary .ui.progress.success .bar.\31 3,
+.summary .ui.progress.success .bar.\31 4, .summary .ui.progress.success .bar.\31 5,
+.summary .ui.progress.success .bar.\31 6, .summary .ui.progress.success .bar.\31 7,
+.summary .ui.progress.success .bar.\31 8, .summary .ui.progress.success .bar.\31 9,
+.summary .ui.progress.success .bar.\32 0, .summary .ui.progress.success .bar.\32 1,
+.summary .ui.progress.success .bar.\32 2, .summary .ui.progress.success .bar.\32 3,
+.summary .ui.progress.success .bar.\32 4, .summary .ui.progress.success .bar.\32 5,
+.summary .ui.progress.success .bar.\32 6, .summary .ui.progress.success .bar.\32 7,
+.summary .ui.progress.success .bar.\32 8, .summary .ui.progress.success .bar.\32 9,
+.summary .ui.progress.success .bar.\33 0, .summary .ui.progress.success .bar.\33 1,
+.summary .ui.progress.success .bar.\33 2, .summary .ui.progress.success .bar.\33 3,
+.summary .ui.progress.success .bar.\33 4, .summary .ui.progress.success .bar.\33 5,
+.summary .ui.progress.success .bar.\33 6, .summary .ui.progress.success .bar.\33 7,
+.summary .ui.progress.success .bar.\33 8, .summary .ui.progress.success .bar.\33 9,
+.summary .ui.progress.success .bar.\34 0, .summary .ui.progress.success .bar.\34 1,
+.summary .ui.progress.success .bar.\34 2, .summary .ui.progress.success .bar.\34 3,
+.summary .ui.progress.success .bar.\34 4, .summary .ui.progress.success .bar.\34 5,
+.summary .ui.progress.success .bar.\34 6, .summary .ui.progress.success .bar.\34 7,
+.summary .ui.progress.success .bar.\34 8, .summary .ui.progress.success .bar.\34 9 {
+    background: #fb6050 !important;
     color: #fff !important;
+}
+
+.summary .ui.inverted.success.statistic>.value.\30, .summary .ui.inverted.success.statistic>.value.\31,
+.summary .ui.inverted.success.statistic>.value.\32, .summary .ui.inverted.success.statistic>.value.\33,
+.summary .ui.inverted.success.statistic>.value.\34, .summary .ui.inverted.success.statistic>.value.\35,
+.summary .ui.inverted.success.statistic>.value.\36, .summary .ui.inverted.success.statistic>.value.\37,
+.summary .ui.inverted.success.statistic>.value.\38, .summary .ui.inverted.success.statistic>.value.\39,
+.summary .ui.inverted.success.statistic>.value.\31 0, .summary .ui.inverted.success.statistic>.value.\31 1,
+.summary .ui.inverted.success.statistic>.value.\31 2, .summary .ui.inverted.success.statistic>.value.\31 3,
+.summary .ui.inverted.success.statistic>.value.\31 4, .summary .ui.inverted.success.statistic>.value.\31 5,
+.summary .ui.inverted.success.statistic>.value.\31 6, .summary .ui.inverted.success.statistic>.value.\31 7,
+.summary .ui.inverted.success.statistic>.value.\31 8, .summary .ui.inverted.success.statistic>.value.\31 9,
+.summary .ui.inverted.success.statistic>.value.\32 0, .summary .ui.inverted.success.statistic>.value.\32 1,
+.summary .ui.inverted.success.statistic>.value.\32 2, .summary .ui.inverted.success.statistic>.value.\32 3,
+.summary .ui.inverted.success.statistic>.value.\32 4, .summary .ui.inverted.success.statistic>.value.\32 5,
+.summary .ui.inverted.success.statistic>.value.\32 6, .summary .ui.inverted.success.statistic>.value.\32 7,
+.summary .ui.inverted.success.statistic>.value.\32 8, .summary .ui.inverted.success.statistic>.value.\32 9,
+.summary .ui.inverted.success.statistic>.value.\33 0, .summary .ui.inverted.success.statistic>.value.\33 1,
+.summary .ui.inverted.success.statistic>.value.\33 2, .summary .ui.inverted.success.statistic>.value.\33 3,
+.summary .ui.inverted.success.statistic>.value.\33 4, .summary .ui.inverted.success.statistic>.value.\33 5,
+.summary .ui.inverted.success.statistic>.value.\33 6, .summary .ui.inverted.success.statistic>.value.\33 7,
+.summary .ui.inverted.success.statistic>.value.\33 8, .summary .ui.inverted.success.statistic>.value.\33 9,
+.summary .ui.inverted.success.statistic>.value.\34 0, .summary .ui.inverted.success.statistic>.value.\34 1,
+.summary .ui.inverted.success.statistic>.value.\34 2, .summary .ui.inverted.success.statistic>.value.\34 3,
+.summary .ui.inverted.success.statistic>.value.\34 4, .summary .ui.inverted.success.statistic>.value.\34 5,
+.summary .ui.inverted.success.statistic>.value.\34 6, .summary .ui.inverted.success.statistic>.value.\34 7,
+.summary .ui.inverted.success.statistic>.value.\34 8, .summary .ui.inverted.success.statistic>.value.\34 9 {
+    color: #fb6050 !important;
+    background: transparent !important;
 }
 
 .\35 0, .\35 1, .\35 2, .\35 3, .\35 4, .\35 5, .\35 6, .\35 7, .\35 8, .\35 9,
 .\36 0, .\36 1, .\36 2, .\36 3, .\36 4, .\36 5, .\36 6, .\36 7, .\36 8, .\36 9,
-.\37 0, .\37 1, .\37 2, .\37 3, .\37 4, .\37 5, .\37 6, .\37 7, .\37 8, .\37 9 {
-    background: #FF9957 !important;
+.\37 0, .\37 1, .\37 2, .\37 3, .\37 4, .\37 5, .\37 6, .\37 7, .\37 8, .\37 9,
+.summary .ui.progress.success .bar.\35 0, .summary .ui.progress.success .bar.\35 1,
+.summary .ui.progress.success .bar.\35 2, .summary .ui.progress.success .bar.\35 3,
+.summary .ui.progress.success .bar.\35 4, .summary .ui.progress.success .bar.\35 5,
+.summary .ui.progress.success .bar.\35 6, .summary .ui.progress.success .bar.\35 7,
+.summary .ui.progress.success .bar.\35 8, .summary .ui.progress.success .bar.\35 9,
+.summary .ui.progress.success .bar.\36 0, .summary .ui.progress.success .bar.\36 1,
+.summary .ui.progress.success .bar.\36 2, .summary .ui.progress.success .bar.\36 3,
+.summary .ui.progress.success .bar.\36 4, .summary .ui.progress.success .bar.\36 5,
+.summary .ui.progress.success .bar.\36 6, .summary .ui.progress.success .bar.\36 7,
+.summary .ui.progress.success .bar.\36 8, .summary .ui.progress.success .bar.\36 9,
+.summary .ui.progress.success .bar.\37 0, .summary .ui.progress.success .bar.\37 1,
+.summary .ui.progress.success .bar.\37 2, .summary .ui.progress.success .bar.\37 3,
+.summary .ui.progress.success .bar.\37 4, .summary .ui.progress.success .bar.\37 5,
+.summary .ui.progress.success .bar.\37 6, .summary .ui.progress.success .bar.\37 7,
+.summary .ui.progress.success .bar.\37 8, .summary .ui.progress.success .bar.\37 9 {
+    background: #FBB828 !important;
     color: #fff !important;
 }
 
-.\38 0, .\38 1, .\38 2, .\38 3, .\38 4, .\38 5, .\38 6, .\38 7, .\38 8, .\38 9 {
-    background: #57C5FF !important;
+.summary .ui.inverted.success.statistic>.value.\35 0, .summary .ui.inverted.success.statistic>.value.\35 1,
+.summary .ui.inverted.success.statistic>.value.\35 2, .summary .ui.inverted.success.statistic>.value.\35 3,
+.summary .ui.inverted.success.statistic>.value.\35 4, .summary .ui.inverted.success.statistic>.value.\35 5,
+.summary .ui.inverted.success.statistic>.value.\35 6, .summary .ui.inverted.success.statistic>.value.\35 7,
+.summary .ui.inverted.success.statistic>.value.\35 8, .summary .ui.inverted.success.statistic>.value.\35 9,
+.summary .ui.inverted.success.statistic>.value.\36 0, .summary .ui.inverted.success.statistic>.value.\36 1,
+.summary .ui.inverted.success.statistic>.value.\36 2, .summary .ui.inverted.success.statistic>.value.\36 3,
+.summary .ui.inverted.success.statistic>.value.\36 4, .summary .ui.inverted.success.statistic>.value.\36 5,
+.summary .ui.inverted.success.statistic>.value.\36 6, .summary .ui.inverted.success.statistic>.value.\36 7,
+.summary .ui.inverted.success.statistic>.value.\36 8, .summary .ui.inverted.success.statistic>.value.\36 9,
+.summary .ui.inverted.success.statistic>.value.\37 0, .summary .ui.inverted.success.statistic>.value.\37 1,
+.summary .ui.inverted.success.statistic>.value.\37 2, .summary .ui.inverted.success.statistic>.value.\37 3,
+.summary .ui.inverted.success.statistic>.value.\37 4, .summary .ui.inverted.success.statistic>.value.\37 5,
+.summary .ui.inverted.success.statistic>.value.\37 6, .summary .ui.inverted.success.statistic>.value.\37 7,
+.summary .ui.inverted.success.statistic>.value.\37 8, .summary .ui.inverted.success.statistic>.value.\37 9 {
+    color:  #FBB828 !important;
+    background: transparent !important;
+}
+
+
+.\38 0, .\38 1, .\38 2, .\38 3, .\38 4, .\38 5, .\38 6, .\38 7, .\38 8, .\38 9,
+.summary .ui.progress.success .bar.\38 0, .summary .ui.progress.success .bar.\38 1,
+.summary .ui.progress.success .bar.\38 2, .summary .ui.progress.success .bar.\38 3,
+.summary .ui.progress.success .bar.\38 4, .summary .ui.progress.success .bar.\38 5,
+.summary .ui.progress.success .bar.\38 6, .summary .ui.progress.success .bar.\38 7,
+.summary .ui.progress.success .bar.\38 8, .summary .ui.progress.success .bar.\38 9 {
+    background: #bfcf2b !important;
     color: #fff !important;
 }
 
-.\39 0, .\39 1, .\39 2, .\39 3, .\39 4, .\39 5, .\39 6, .\39 7, .\39 8, .\39 9 {
-    background: #00b5ad !important;
+.summary .ui.inverted.success.statistic>.value.\38 0, .summary .ui.inverted.success.statistic>.value.\38 1,
+.summary .ui.inverted.success.statistic>.value.\38 2, .summary .ui.inverted.success.statistic>.value.\38 3,
+.summary .ui.inverted.success.statistic>.value.\38 4, .summary .ui.inverted.success.statistic>.value.\38 5,
+.summary .ui.inverted.success.statistic>.value.\38 6, .summary .ui.inverted.success.statistic>.value.\38 7,
+.summary .ui.inverted.success.statistic>.value.\38 8, .summary .ui.inverted.success.statistic>.value.\38 9 {
+    color:  #bfcf2b !important;
+    background: transparent !important;
+}
+
+.\39 0, .\39 1, .\39 2, .\39 3, .\39 4, .\39 5, .\39 6, .\39 7, .\39 8, .\39 9,
+.summary .ui.progress.success .bar.\39 0, .summary .ui.progress.success .bar.\39 1,
+.summary .ui.progress.success .bar.\39 2, .summary .ui.progress.success .bar.\39 3,
+.summary .ui.progress.success .bar.\39 4, .summary .ui.progress.success .bar.\39 5,
+.summary .ui.progress.success .bar.\39 6, .summary .ui.progress.success .bar.\39 7,
+.summary .ui.progress.success .bar.\39 8, .summary .ui.progress.success .bar.\39 9 {
+    background: #62d46d !important;
     color: #fff !important;
 }
 
-.\31 00 {
-    background: #5CB85C !important;
+.summary .ui.inverted.success.statistic>.value.\39 0, .summary .ui.inverted.success.statistic>.value.\39 1,
+.summary .ui.inverted.success.statistic>.value.\39 2, .summary .ui.inverted.success.statistic>.value.\39 3,
+.summary .ui.inverted.success.statistic>.value.\39 4, .summary .ui.inverted.success.statistic>.value.\39 5,
+.summary .ui.inverted.success.statistic>.value.\39 6, .summary .ui.inverted.success.statistic>.value.\39 7,
+.summary .ui.inverted.success.statistic>.value.\39 8, .summary .ui.inverted.success.statistic>.value.\39 9 {
+    color:  #62d46d !important;
+    background: transparent !important;
+}
+
+.\31 00,
+.summary .ui.progress.success .bar.\31 00 {
+    background: #74c49a !important;
     color: #fff !important;
+}
+
+.summary .ui.inverted.success.statistic>.value.\31 00 {
+    color:  #74c49a !important;
+    background: transparent !important;
 }

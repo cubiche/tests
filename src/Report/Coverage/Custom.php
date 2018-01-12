@@ -640,6 +640,7 @@ class Custom extends Report
                 array(
                     'itemCoverageValue' => round($itemCoverage['coverage'] * 100, 2),
                     'itemUncoverageValue' => 100 - round($itemCoverage['coverage'] * 100, 2),
+                    'itemCoverageRounded' => floor($itemCoverage['coverage'] * 100),
                 )
             );
         }
