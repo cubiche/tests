@@ -260,9 +260,6 @@ table.items tr .label {
 
 .\30, .\31, .\32, .\33, .\34, .\35, .\36, .\37, .\38, .\39,
 .\31 0, .\31 1, .\31 2, .\31 3, .\31 4, .\31 5, .\31 6, .\31 7, .\31 8, .\31 9,
-.\32 0, .\32 1, .\32 2, .\32 3, .\32 4, .\32 5, .\32 6, .\32 7, .\32 8, .\32 9,
-.\33 0, .\33 1, .\33 2, .\33 3, .\33 4, .\33 5, .\33 6, .\33 7, .\33 8, .\33 9,
-.\34 0, .\34 1, .\34 2, .\34 3, .\34 4, .\34 5, .\34 6, .\34 7, .\34 8, .\34 9,
 .summary .ui.progress.success .bar.\30, .summary .ui.progress.success .bar.\31,
 .summary .ui.progress.success .bar.\32, .summary .ui.progress.success .bar.\33,
 .summary .ui.progress.success .bar.\34, .summary .ui.progress.success .bar.\35,
@@ -272,7 +269,28 @@ table.items tr .label {
 .summary .ui.progress.success .bar.\31 2, .summary .ui.progress.success .bar.\31 3,
 .summary .ui.progress.success .bar.\31 4, .summary .ui.progress.success .bar.\31 5,
 .summary .ui.progress.success .bar.\31 6, .summary .ui.progress.success .bar.\31 7,
-.summary .ui.progress.success .bar.\31 8, .summary .ui.progress.success .bar.\31 9,
+.summary .ui.progress.success .bar.\31 8, .summary .ui.progress.success .bar.\31 9 {
+    background: #fb6050 !important;
+    color: #fff !important;
+}
+
+.summary .ui.inverted.success.statistic>.value.\30, .summary .ui.inverted.success.statistic>.value.\31,
+.summary .ui.inverted.success.statistic>.value.\32, .summary .ui.inverted.success.statistic>.value.\33,
+.summary .ui.inverted.success.statistic>.value.\34, .summary .ui.inverted.success.statistic>.value.\35,
+.summary .ui.inverted.success.statistic>.value.\36, .summary .ui.inverted.success.statistic>.value.\37,
+.summary .ui.inverted.success.statistic>.value.\38, .summary .ui.inverted.success.statistic>.value.\39,
+.summary .ui.inverted.success.statistic>.value.\31 0, .summary .ui.inverted.success.statistic>.value.\31 1,
+.summary .ui.inverted.success.statistic>.value.\31 2, .summary .ui.inverted.success.statistic>.value.\31 3,
+.summary .ui.inverted.success.statistic>.value.\31 4, .summary .ui.inverted.success.statistic>.value.\31 5,
+.summary .ui.inverted.success.statistic>.value.\31 6, .summary .ui.inverted.success.statistic>.value.\31 7,
+.summary .ui.inverted.success.statistic>.value.\31 8, .summary .ui.inverted.success.statistic>.value.\31 9 {
+    color: #fb6050 !important;
+    background: transparent !important;
+}
+
+.\32 0, .\32 1, .\32 2, .\32 3, .\32 4, .\32 5, .\32 6, .\32 7, .\32 8, .\32 9,
+.\33 0, .\33 1, .\33 2, .\33 3, .\33 4, .\33 5, .\33 6, .\33 7, .\33 8, .\33 9,
+.\34 0, .\34 1, .\34 2, .\34 3, .\34 4, .\34 5, .\34 6, .\34 7, .\34 8, .\34 9,
 .summary .ui.progress.success .bar.\32 0, .summary .ui.progress.success .bar.\32 1,
 .summary .ui.progress.success .bar.\32 2, .summary .ui.progress.success .bar.\32 3,
 .summary .ui.progress.success .bar.\32 4, .summary .ui.progress.success .bar.\32 5,
@@ -288,7 +306,7 @@ table.items tr .label {
 .summary .ui.progress.success .bar.\34 4, .summary .ui.progress.success .bar.\34 5,
 .summary .ui.progress.success .bar.\34 6, .summary .ui.progress.success .bar.\34 7,
 .summary .ui.progress.success .bar.\34 8, .summary .ui.progress.success .bar.\34 9 {
-    background: #fb6050 !important;
+    background: #DBAD15 !important;
     color: #fff !important;
 }
 
@@ -317,7 +335,7 @@ table.items tr .label {
 .summary .ui.inverted.success.statistic>.value.\34 4, .summary .ui.inverted.success.statistic>.value.\34 5,
 .summary .ui.inverted.success.statistic>.value.\34 6, .summary .ui.inverted.success.statistic>.value.\34 7,
 .summary .ui.inverted.success.statistic>.value.\34 8, .summary .ui.inverted.success.statistic>.value.\34 9 {
-    color: #fb6050 !important;
+    color: #DBAD15 !important;
     background: transparent !important;
 }
 

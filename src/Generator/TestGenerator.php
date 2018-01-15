@@ -29,6 +29,7 @@ class TestGenerator extends AbstractGenerator
      * @param string $className
      * @param string $testCaseClassName
      * @param string $testDirectoryName
+     * @param integer $level
      * @param string $sourceFile
      * @param string $targetClassName
      * @param string $targetSourceFile
@@ -37,6 +38,7 @@ class TestGenerator extends AbstractGenerator
         $className,
         $testCaseClassName,
         $testDirectoryName,
+        $level,
         $sourceFile = '',
         $targetClassName = '',
         $targetSourceFile = ''
@@ -46,6 +48,7 @@ class TestGenerator extends AbstractGenerator
         parent::__construct(
             $className,
             $testDirectoryName,
+            $level,
             $sourceFile,
             $targetClassName,
             $targetSourceFile
@@ -232,7 +235,8 @@ class TestGenerator extends AbstractGenerator
         $testCaseFullClassName = ClassUtils::resolveTestCaseClassName(
             $className,
             $this->testCaseClassName,
-            $this->testDirectoryName
+            $this->testDirectoryName,
+            $this->level
         );
 
         $components = explode('\\', $testCaseFullClassName);

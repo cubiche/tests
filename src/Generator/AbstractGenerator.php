@@ -29,6 +29,11 @@ abstract class AbstractGenerator
     protected $testDirectoryName;
 
     /**
+     * @var integer
+     */
+    protected $level;
+
+    /**
      * @var string
      */
     protected $sourceFile;
@@ -46,20 +51,23 @@ abstract class AbstractGenerator
     /**
      * AbstractGenerator constructor.
      *
-     * @param string $className
-     * @param string $testDirectoryName
-     * @param string $sourceFile
-     * @param string $targetClassName
-     * @param string $targetSourceFile
+     * @param string  $className
+     * @param string  $testDirectoryName
+     * @param integer $level
+     * @param string  $sourceFile
+     * @param string  $targetClassName
+     * @param string  $targetSourceFile
      */
     public function __construct(
         $className,
         $testDirectoryName,
+        $level = 3,
         $sourceFile = '',
         $targetClassName = '',
         $targetSourceFile = ''
     ) {
         $this->testDirectoryName = $testDirectoryName;
+        $this->level = $level;
 
         if (empty($sourceFile)) {
             $sourceFile = ClassUtils::resolveSourceFile($className);
@@ -79,16 +87,14 @@ abstract class AbstractGenerator
         }
 
         if (empty($targetClassName)) {
-            $targetClassName = $this->resolveTargetClassName($className, $sourceFile, $testDirectoryName);
+            $targetClassName = $this->resolveTargetClassName($className, $testDirectoryName, $this->level);
         }
 
         if (empty($targetSourceFile)) {
             $targetSourceFile = ClassUtils::resolveTargetSourceFile(
                 $className,
                 $sourceFile,
-                $targetClassName,
-                $testDirectoryName,
-                $this->isTestCaseClass()
+                $targetClassName
             );
         }
 
@@ -100,18 +106,18 @@ abstract class AbstractGenerator
     }
 
     /**
-     * @param string $className
-     * @param string $sourceFile
-     * @param string $testDirectoryName
+     * @param string  $className
+     * @param string  $testDirectoryName
+     * @param integer $level
      *
      * @return string
      */
-    public function resolveTargetClassName($className, $sourceFile, $testDirectoryName)
+    public function resolveTargetClassName($className, $testDirectoryName, $level = 3)
     {
         return ClassUtils::resolveTargetClassName(
             $className,
-            $sourceFile,
             $testDirectoryName,
+            $level,
             $this->isTestCaseClass()
         );
     }
