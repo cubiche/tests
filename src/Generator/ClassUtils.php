@@ -266,148 +266,73 @@ class ClassUtils
     }
 
     /**
-     * @param string $className
-     * @param string $sourceFile
-     * @param string $testDirectoryName
-     * @param bool   $isRoot
+     * @param string  $className
+     * @param string  $testDirectoryName
+     * @param integer $level
+     * @param bool    $isRoot
      *
      * @return string
      */
-    public static function resolveTargetClassName($className, $sourceFile, $testDirectoryName, $isRoot = false)
+    public static function resolveTargetClassName($className, $testDirectoryName, $level = 3, $isRoot = false)
     {
         $components = explode('\\', $className);
         $targetClassName = array_pop($components).'Tests';
 
-        // Source file test case: src/Cubiche/Domain/Command/Middlewares/Handler/HandlertMiddleware.php
-        $reflector = new \ReflectionClass($className);
-        $namespace = $reflector->getNamespaceName();
-
-        list($projectName, $layerName, $componentName) = self::extractProjectInfo(
-            $namespace
-        );
-
-        // $componentPath = Cubiche/Domain/Command
-        $componentPath = $projectName.DIRECTORY_SEPARATOR.
-            $layerName.DIRECTORY_SEPARATOR.$componentName
-        ;
-
-        // $begining = src
-        $begining = substr($sourceFile, 0, strpos($sourceFile, $componentPath) - 1);
-
-        $path = $begining.DIRECTORY_SEPARATOR.$componentPath;
-        $path = explode(DIRECTORY_SEPARATOR, substr($sourceFile, strlen($path) + 1));
-        if (!empty($path)) {
-            array_pop($path);
-        }
-
-        // $end = Middlewares/Handler/
-        $end = implode(DIRECTORY_SEPARATOR, $path);
+        $start = implode('\\', array_slice($components, 0, $level));
+        $end = implode('\\', array_slice($components, $level));
 
         if ($isRoot) {
             // Cubiche\\Domain\\Command\\Tests\\Units\\TestCase.php
-            return implode('\\', explode('/', $componentPath.DIRECTORY_SEPARATOR)).
-                implode('\\', explode('/', $testDirectoryName)).
+            return $start . '\\' .
+                implode('\\', explode('/', $testDirectoryName)) .
                 $targetClassName
-                ;
+            ;
         }
 
         // Cubiche\\Domain\\Command\\Tests\\Units\\Middlewares\\Handler\\HandlertMiddlewareTests.php
-        return implode('\\', explode('/', $componentPath.DIRECTORY_SEPARATOR)).
-            implode('\\', explode('/', $testDirectoryName)).
-            implode('\\', explode('/', empty($end) ? '' : $end.DIRECTORY_SEPARATOR)).
+        return $start . '\\' .
+            implode('\\', explode('/', $testDirectoryName)) .
+            (empty($end) ? '' : $end . '\\') .
             $targetClassName
-            ;
+        ;
     }
 
     /**
-     * @param string $className
-     * @param string $testCaseClassName
-     * @param string $testDirectoryName
+     * @param string  $className
+     * @param string  $testCaseClassName
+     * @param string  $testDirectoryName
+     * @param integer $level
      *
      * @return string
      */
-    public static function resolveTestCaseClassName($className, $testCaseClassName, $testDirectoryName)
+    public static function resolveTestCaseClassName($className, $testCaseClassName, $testDirectoryName, $level = 3)
     {
-        // Source file test case: src/Cubiche/Domain/Command/Middlewares/Handler/HandlertMiddleware.php
-        $reflector = new \ReflectionClass($className);
-        $namespace = $reflector->getNamespaceName();
+        $components = explode('\\', $className);
+        array_pop($components);
 
-        list($projectName, $layerName, $componentName) = self::extractProjectInfo(
-            $namespace
-        );
-
-        // $componentPath = Cubiche/Domain/Command
-        $componentPath = $projectName.DIRECTORY_SEPARATOR.
-            $layerName.DIRECTORY_SEPARATOR.$componentName
-        ;
+        $start = implode('\\', array_slice($components, 0, $level));
 
         // Cubiche\\Domain\\Command\\Tests\\Units\\TestCase.php
-        return implode('\\', explode('/', $componentPath.DIRECTORY_SEPARATOR)).
-            implode('\\', explode('/', $testDirectoryName)).
+        return $start . '\\' .
+            implode('\\', explode('/', $testDirectoryName)) .
             $testCaseClassName
-            ;
+        ;
     }
 
     /**
      * @param string $className
      * @param string $sourceFile
      * @param string $targetClassName
-     * @param string $testDirectoryName
-     * @param bool   $isRoot
      *
      * @return string
      */
-    public static function resolveTargetSourceFile(
-        $className,
-        $sourceFile,
-        $targetClassName,
-        $testDirectoryName,
-        $isRoot = false
-    ) {
-        $components = explode('\\', $targetClassName);
-        $targetClassName = array_pop($components);
-
-        // Source file test case: src/Cubiche/Domain/Command/Middlewares/Handler/HandlertMiddleware.php
-        $reflector = new \ReflectionClass($className);
-        $namespace = $reflector->getNamespaceName();
-
-        list($projectName, $layerName, $componentName) = self::extractProjectInfo(
-            $namespace
-        );
-
-        // $componentPath = Cubiche/Domain/Command
-        $componentPath = $projectName.DIRECTORY_SEPARATOR.
-            $layerName.DIRECTORY_SEPARATOR.$componentName
-        ;
-
-        // $begining = src
-        $begining = substr($sourceFile, 0, strpos($sourceFile, $componentPath) - 1);
-
-        $path = $begining.DIRECTORY_SEPARATOR.$componentPath;
-        $path = explode(DIRECTORY_SEPARATOR, substr($sourceFile, strlen($path) + 1));
-        if (!empty($path)) {
-            array_pop($path);
-        }
-
-        // $end = Middlewares/Handler/
-        $end = implode(DIRECTORY_SEPARATOR, $path);
-
-        if ($isRoot) {
-            // src/Cubiche/Domain/Command/Tests/Units/TestCase.php
-            return $begining.DIRECTORY_SEPARATOR.
-                $componentPath.DIRECTORY_SEPARATOR.
-                $testDirectoryName.
-                $targetClassName.'.php'
-                ;
-        }
+    public static function resolveTargetSourceFile($className, $sourceFile, $targetClassName)
+    {
+        $relativePath = str_replace('\\', '/', $className) . '.php';
+        $base = str_replace($relativePath, '', $sourceFile);
 
         // src/Cubiche/Domain/Command/Tests/Units/Middlewares/Handler/HandlertMiddlewareTests.php
-        return $begining.DIRECTORY_SEPARATOR.
-            $componentPath.DIRECTORY_SEPARATOR.
-            $testDirectoryName.
-            (empty($end) ? '' : $end.DIRECTORY_SEPARATOR).
-            $targetClassName.'.php'
-            ;
+        return $base . str_replace('\\', '/', $targetClassName) . '.php';
     }
 
     /**

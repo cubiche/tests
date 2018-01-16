@@ -21,12 +21,12 @@ class TestCaseGenerator extends TestGenerator
     /**
      * {@inheritdoc}
      */
-    public function resolveTargetClassName($className, $sourceFile, $testDirectoryName)
+    public function resolveTargetClassName($className, $testDirectoryName, $level = 3)
     {
         $targetClassName = ClassUtils::resolveTargetClassName(
             $className,
-            $sourceFile,
             $testDirectoryName,
+            $level,
             $this->isTestCaseClass()
         );
 

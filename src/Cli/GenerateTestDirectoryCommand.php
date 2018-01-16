@@ -37,6 +37,12 @@ class GenerateTestDirectoryCommand extends BaseCommand
                 InputArgument::REQUIRED,
                 'The directory to generate a test classes for'
             )
+            ->addArgument(
+                'level',
+                InputArgument::OPTIONAL,
+                'The deep level to generate a test classes for',
+                3
+            )
         ;
 
         parent::configure();
@@ -47,6 +53,7 @@ class GenerateTestDirectoryCommand extends BaseCommand
      */
     protected function getGenerators(InputInterface $input, OutputInterface $output)
     {
+        $level = intval($input->getArgument('level'));
         $directoryName = $input->getArgument('directory');
         $directory = realpath($directoryName);
 
@@ -80,7 +87,8 @@ class GenerateTestDirectoryCommand extends BaseCommand
                 $generators[] = new TestGenerator(
                     $className,
                     $this->getTestsCaseClassName(),
-                    $this->getTestsDirectoryName()
+                    $this->getTestsDirectoryName(),
+                    $level
                 );
             }
         }
@@ -89,7 +97,8 @@ class GenerateTestDirectoryCommand extends BaseCommand
             $testCaseGenerator = new TestCaseGenerator(
                 $generators[0]->getFullClassName(),
                 $this->getTestsCaseClassName(),
-                $this->getTestsDirectoryName()
+                $this->getTestsDirectoryName(),
+                $level
             );
 
             if (!is_file($testCaseGenerator->getTargetSourceFile())) {

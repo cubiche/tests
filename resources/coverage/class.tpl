@@ -82,10 +82,10 @@
             </div>
             <div class="item">
                 <tpl:coverageAvailable>
-                    <div class="repoStats" data-colors='["#5CB85C", "#ff5b57"]' data-stats='[{ "value": <tpl:coverageValue />, "label": "Covered" }, { "value": <tpl:uncoverageValue />, "label": "Not covered" }]'></div>
+                    <div class="repoStats" data-colors='["#74c49a", "#fb6050"]' data-stats='[{ "value": <tpl:coverageValue />, "label": "Covered" }, { "value": <tpl:uncoverageValue />, "label": "Not covered" }]'></div>
                 </tpl:coverageAvailable>
                 <tpl:coverageUnavailable>
-                    <div class="repoStats" data-colors='["#ff5b57"]' data-stats='[{ "value": 100, "label": "Not covered" }]'></div>
+                    <div class="repoStats" data-colors='["#fb6050"]' data-stats='[{ "value": 100, "label": "Not covered" }]'></div>
                 </tpl:coverageUnavailable>
 
                 <div class="runStatsRelevant">
@@ -107,11 +107,11 @@
                         <div class="item">
                             <div class="ui small success inverted horizontal statistic">
                                 <div class="ui progress success" data-percent="<tpl:itemCoverageValue />">
-                                    <div class="bar" style="width: <tpl:itemCoverageValue />%;">
+                                    <div class="bar <tpl:itemCoverageRounded />" style="width: <tpl:itemCoverageValue />%;">
                                         <div class="progress"></div>
                                     </div>
                                 </div>
-                                <div class="value">
+                                <div class="value <tpl:itemCoverageRounded />">
                                     <tpl:itemCoverageValue />%
                                 </div>
                                 <div class="label">
