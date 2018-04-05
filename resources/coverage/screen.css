@@ -2,8 +2,9 @@ body {
     background-color: #FFFFFF;
     margin-top: 100px;
 }
-.ui.column.grid>[class*="three wide"].column {
-    width: 333px !important;
+.header-container .logo-container {
+    width: 325px !important;
+    float: left;
 }
 .ui.column.grid>[class*="three wide"].column a:hover {
     background-color: #f7f9fa !important;
@@ -70,6 +71,7 @@ body {
     padding-right: 75px;
     font-size: 15px;
     font-weight: bold;
+    margin-left: 325px;
 }
 
 .ui.vertical.menu .active.item {
