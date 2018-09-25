@@ -22,32 +22,34 @@
 
 <div class="ui fixed main menu">
     <div class="ui fluid container">
-        <div class="ui one column grid header-container">
+        <div class="ui two column grid">
+            <div class="three wide column">
+                <a href="#" class="header item">
+                    <img class="logo" src="<tpl:relativeRootUrl />logo.svg">
+                    <tpl:projectName/>
+                </a>
+            </div>
+            <div class="thirteen wide column">
+                <div class="ui two column grid">
+                    <div class="twelve wide column">
+                        <div class="ui basic segment">
+                            <tpl:pathTemplate>
+                                <div class="ui breadcrumb">
+                                    <tpl:pathItem>
+                                        <a href="<tpl:pathItemUrl />" class="section"><tpl:pathItemName/></a>
+                                        <span class="divider">/</span>
+                                    </tpl:pathItem>
+                                    <tpl:pathItemLast>
+                                        <div class="active section"><tpl:pathItemName/></div>
+                                    </tpl:pathItemLast>
+                                </div>
+                            </tpl:pathTemplate>
+                        </div>
+                    </div>
+                    <div class="four wide column right aligned">
 
-            <div class="sixteen wide column">
-                <div class="logo-container">
-                    <a href="<tpl:relativeRootUrl />" class="header item">
-                        <img class="logo" src="<tpl:relativeRootUrl />logo.png">
-                        <tpl:projectName/>
-                    </a>
-                </div>
-
-                <div class="breadcrumb-container">
-                    <div class="ui basic segment">
-                        <tpl:pathTemplate>
-                            <div class="ui breadcrumb">
-                                <tpl:pathItem>
-                                    <a href="<tpl:pathItemUrl />" class="section"><tpl:pathItemName/></a>
-                                    <span class="divider">/</span>
-                                </tpl:pathItem>
-                                <tpl:pathItemLast>
-                                    <div class="active section"><tpl:pathItemName/></div>
-                                </tpl:pathItemLast>
-                            </div>
-                        </tpl:pathTemplate>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

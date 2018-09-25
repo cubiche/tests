@@ -2,9 +2,12 @@ body {
     background-color: #FFFFFF;
     margin-top: 100px;
 }
-.header-container .logo-container {
-    width: 325px !important;
-    float: left;
+.ui.column.grid>[class*="three wide"].column {
+    width: 333px !important;
+    position: absolute;
+}
+.ui.column.grid>[class*="thirteen wide"].column {
+    margin-left: 333px;
 }
 .ui.column.grid>[class*="three wide"].column a:hover {
     background-color: #f7f9fa !important;
@@ -34,6 +37,7 @@ body {
     border-top: none;
     box-shadow: none;
     padding-top: 6px;
+    height: 60px;
 }
 
 .ui.main.menu .container {
@@ -41,7 +45,8 @@ body {
 }
 
 .ui.main.menu .item img.logo {
-    margin-right: 1.5em;
+    margin-right: 0.8em;
+    width: 2.8em !important;
 }
 
 .ui.main.menu .item:before {
@@ -71,7 +76,6 @@ body {
     padding-right: 75px;
     font-size: 15px;
     font-weight: bold;
-    margin-left: 325px;
 }
 
 .ui.vertical.menu .active.item {
