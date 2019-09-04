@@ -10,6 +10,7 @@
  */
 namespace Cubiche\Tests\Report\Coverage;
 
+use mageekguy\atoum as Atoum;
 use mageekguy\atoum\cli\colorizer as Colorizer;
 use mageekguy\atoum\exceptions\logic\invalidArgument as InvalidArgumentException;
 use mageekguy\atoum\exceptions\runtime\unexpectedValue as UnexpectedValueException;
@@ -17,8 +18,6 @@ use mageekguy\atoum\fs\path as Path;
 use mageekguy\atoum\report\fields\runner\coverage\cli as Report;
 use mageekguy\atoum\score\coverage as Coverage;
 use mageekguy\atoum\template\parser as Parser;
-use mageekguy\atoum\template as Template;
-use mageekguy\atoum as Atoum;
 
 /**
  * Custom class.
